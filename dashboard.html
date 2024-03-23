@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Dylalh</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="upload.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image Upload Dashboard</h1>
+      <div class="row">
+        <div class="col">
+          <div class="row-input">
+            <input
+              type="file"
+              class="upload-input"
+              id="fileInput1"
+              accept="image/*"
+            />
+            <label for="fileInput1" class="upload-label">Choose Image 1</label>
+            <input
+              type="text"
+              class="text-input"
+              placeholder="Enter your link here"
+              id="link1"
+            />
+          </div>
+          <div class="image-preview" id="imagePreview1"></div>
+        </div>
+        <div class="col">
+          <div class="row-input">
+            <input
+              type="file"
+              class="upload-input"
+              id="fileInput2"
+              accept="image/*"
+            />
+            <label for="fileInput2" class="upload-label">Choose Image 2</label>
+            <input
+              type="text"
+              class="text-input"
+              placeholder="Enter your link here"
+              id="link2"
+            />
+          </div>
+          <div class="image-preview" id="imagePreview2"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row-input">
+            <input
+              type="file"
+              class="upload-input"
+              id="fileInput3"
+              accept="image/*"
+            />
+            <label for="fileInput3" class="upload-label">Choose Image 3</label>
+            <input
+              type="text"
+              class="text-input"
+              placeholder="Enter your link here"
+              id="link3"
+            />
+          </div>
+          <div class="image-preview" id="imagePreview3"></div>
+        </div>
+        <div class="col">
+          <div class="row-input">
+            <input
+              type="file"
+              class="upload-input"
+              id="fileInput4"
+              accept="image/*"
+            />
+            <label for="fileInput4" class="upload-label">Choose Image 4</label>
+            <input
+              type="text"
+              class="text-input"
+              placeholder="Enter your link here"
+              id="link4"
+            />
+          </div>
+          <div class="image-preview" id="imagePreview4"></div>
+        </div>
+      </div>
+      <button class="save-button">Save Images</button>
+    </div>
+  </body>
+</html>

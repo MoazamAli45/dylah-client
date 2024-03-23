@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Dylah</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="about.css" />
+</head>
+
+<body>
+    <nav class="navbar wrapper">
+        <a class="logo" href="/">
+            <img src="./assets/logo.png" alt="Logo" />
+        </a>
+        <div class="links">
+            <a href="contact-us.html" class="nav-link">Contact</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </div>
+    </nav>
+    <section class="hero wrapper">
+        <div class="hero-about">
+            <h2>Contact Us</h2>
+            <form id="contact-form" class="form-size">
+                <div class="name">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Name">
+                </div>
+                <div class="name">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Email">
+                </div>
+                <div class="name">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" name="businessName" id="businessName" placeholder="Enter Business name">
+                </div>
+                <div class="name">
+                    <label for="message">Write Us</label>
+                    <textarea name="message" id="message" placeholder="Write us"></textarea>
+                </div>
+                <button type="submit" class="btn about-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
