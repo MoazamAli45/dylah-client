@@ -45,24 +45,55 @@ fileInputs.forEach((fileInput, index) => {
   });
 });
 
+// async function saveImage() {
+//   const images = [];
+//   let hasSelectedImage = false; // Flag to track if at least one image is selected
+//   try {
+//     fileInputs.forEach((fileInput, index) => {
+//       const file = fileInput.files[0];
+//       const linkInput = textInputs[index];
+//       const link = linkInput.value.trim(); // Get link input value
+
+//       if (file) {
+//         hasSelectedImage = true;
+//         uploadImage(file, link, index + 1);
+//       }
+//     });
+//     if (!hasSelectedImage) {
+//       alert("Please select an image");
+//       return; // Stop execution if no image is selected
+//     }
+//     alert("Image uploaded successfully");
+//   } catch (error) {
+//     console.error("Error saving image:", error);
+//   }
+// }
 async function saveImage() {
   const images = [];
+  let hasSelectedImage = false; // Flag to track if at least one image is selected
   try {
+    images.length = 0; // Reset the images array before processing new uploads
+
     fileInputs.forEach((fileInput, index) => {
       const file = fileInput.files[0];
       const linkInput = textInputs[index];
       const link = linkInput.value.trim(); // Get link input value
 
       if (file) {
+        hasSelectedImage = true;
         uploadImage(file, link, index + 1);
       }
     });
+
+    if (!hasSelectedImage) {
+      alert("Please select an image");
+      return; // Stop execution if no image is selected
+    }
     alert("Image uploaded successfully");
   } catch (error) {
     console.error("Error saving image:", error);
   }
 }
-
 const saveBtn = document.querySelector(".save-button");
 if (saveBtn) {
   saveBtn.addEventListener("click", saveImage);
@@ -102,8 +133,8 @@ function setBackgroundImage(elementId, imageUrl, linkId, linkUrl) {
   const element = document.getElementById(elementId);
   const link = document.getElementById(linkId);
   if (!imageUrl) return;
-  if (element && link) {
-    link.setAttribute("href", linkUrl); // Set href attribute for the element
+  if (element) {
+    link.setAttribute("href", linkUrl || "/"); // Set href attribute for the element
     element.style.backgroundImage = `url('${imageUrl}')`; // Wrap imageUrl with single quotes
     element.style.backgroundSize = "cover"; // Ensure the background size is set appropriately
   }
@@ -151,37 +182,3 @@ function fetchAndSetBackgrounds() {
 
 // Call the function to fetch and set background images
 fetchAndSetBackgrounds();
-
-// // Fetch images and links from Firebase Database and set as background images and links
-// function fetchAndSetBackgroundsAndLinks() {
-//   const imagesRef = databaseRef(database, "images");
-//   onValue(imagesRef, (snapshot) => {
-//     const imageData = [];
-//     snapshot.forEach((childSnapshot) => {
-//       const { imageUrl, link } = childSnapshot.val(); // Destructure imageUrl and link from snapshot data
-//       imageData.push({ imageUrl, link }); // Push an object containing both imageUrl and link
-//     });
-
-//     // Loop through imageData array and set background images and links for specific elements
-//     imageData.forEach((data, index) => {
-//       const { imageUrl, link } = data;
-//       const cardId = `card${index + 1}`; // Generate card ID dynamically
-//       const linkId = `link${index + 1}`; // Generate link ID dynamically
-
-//       setBackgroundImage(cardId, imageUrl); // Set background image
-//       setLink(linkId, link); // Set link
-//     });
-//   });
-// }
-
-// // Function to set link for an element
-// function setLink(elementId, linkUrl) {
-//   const element = document.getElementById(elementId);
-//   if (!linkUrl) return;
-//   if (element) {
-//     element.setAttribute("href", linkUrl); // Set href attribute for the element
-//   }
-// }
-
-// // Call the function to fetch and set background images and links
-// fetchAndSetBackgroundsAndLinks();
