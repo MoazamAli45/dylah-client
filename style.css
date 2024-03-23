@@ -236,6 +236,18 @@ a {
   gap: 20px;
   flex: 1 0 0;
 }
+.left-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .left-inner {
+    height: 70%;
+    margin-block: auto;
+  }
+}
+
 .hero-left h2 {
   font-size: 3rem;
   font-weight: 700;
